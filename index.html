@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patrik Kekkonen — Marketing &amp; Communications</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --lime: #DDEA78;
+    --lime-dark: #c8d55e;
+    --lime-faint: #f0f5c4;
+    --grape: #433455;
+    --grape-light: #5e4d78;
+    --grape-faint: #e8e4f0;
+    --ink: #1f1829;
+    --ink-muted: #6b6082;
+    --ink-faint: #a89fba;
+    --paper: #faf9f4;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(67,52,85,0.96);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--lime);
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(221,234,120,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--lime); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 60px;
+  }
+  .hero-left {
+    padding: 80px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--grape);
+  }
+  .hero-right {
+    padding: 80px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: var(--lime);
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(221,234,120,0.55);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(44px, 5.5vw, 72px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 28px;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--lime);
+  }
+  .hero-tagline {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    max-width: 340px;
+    line-height: 1.65;
+    margin-bottom: 44px;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lime);
+    text-decoration: none;
+    border-bottom: 1.5px solid rgba(221,234,120,0.4);
+    padding-bottom: 3px;
+    transition: border-color 0.2s;
+    width: fit-content;
+  }
+  .hero-cta:hover { border-color: var(--lime); }
+
+  .hero-right-number {
+    font-family: var(--serif);
+    font-size: 130px;
+    line-height: 1;
+    color: rgba(67,52,85,0.12);
+    letter-spacing: -0.05em;
+  }
+  .hero-right-info {
+    border-top: 1px solid rgba(67,52,85,0.2);
+    padding-top: 24px;
+    margin-top: 24px;
+  }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 0.5px solid rgba(67,52,85,0.15);
+  }
+  .info-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(67,52,85,0.45); }
+  .info-value { font-size: 13px; font-weight: 500; color: var(--grape); }
+
+  /* ── SECTIONS ── */
+  section { padding: 88px 48px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 52px;
+    border-bottom: 1px solid rgba(67,52,85,0.12);
+    padding-bottom: 16px;
+  }
+  .section-number {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    color: var(--grape);
+  }
+
+  /* ── ABOUT ── */
+  .about { background: #fff; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: start;
+  }
+  .about-pull {
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--grape);
+    font-style: italic;
+  }
+  .about-pull span {
+    background: var(--lime);
+    padding: 0 4px;
+    font-style: normal;
+    color: var(--grape);
+  }
+  .about-body { font-size: 15px; color: var(--ink-muted); line-height: 1.8; }
+  .about-body p + p { margin-top: 16px; }
+
+  /* ── SKILLS ── */
+  .skills { background: var(--grape); }
+  .skills .section-title { color: var(--lime); }
+  .skills .section-number { color: rgba(221,234,120,0.35); }
+  .skills .section-header { border-bottom-color: rgba(221,234,120,0.15); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(221,234,120,0.12);
+  }
+  .skill-card {
+    background: var(--grape);
+    padding: 32px 28px;
+    transition: background 0.25s;
+  }
+  .skill-card:hover { background: var(--grape-light); }
+  .skill-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--lime);
+    margin-bottom: 20px;
+  }
+  .skill-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .skill-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+  /* ── EXPERIENCE ── */
+  .experience { background: var(--paper); }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    padding: 36px 0;
+    border-bottom: 0.5px solid rgba(67,52,85,0.1);
+    align-items: start;
+  }
+  .exp-item:first-child { border-top: 0.5px solid rgba(67,52,85,0.1); }
+  .exp-period { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 6px; }
+  .exp-company { font-size: 13px; color: var(--ink-muted); }
+  .exp-badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 3px 10px;
+    background: var(--lime);
+    color: var(--grape);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--grape);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .exp-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+
+  /* ── INTERESTS ── */
+  .interests { background: var(--lime); }
+  .interests .section-title { color: var(--grape); }
+  .interests .section-number { color: rgba(67,52,85,0.35); }
+  .interests .section-header { border-bottom-color: rgba(67,52,85,0.15); }
+  .interest-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    padding: 10px 20px;
+    border: 1px solid rgba(67,52,85,0.25);
+    font-size: 13px;
+    color: var(--grape);
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .tag:hover { background: rgba(67,52,85,0.1); }
+
+  /* ── EDUCATION ── */
+  .education { background: #fff; }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .edu-card {
+    padding: 36px;
+    border: 1px solid rgba(67,52,85,0.1);
+    transition: border-color 0.2s;
+  }
+  .edu-card:hover { border-color: var(--grape); }
+  .edu-degree-type {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 500; margin-bottom: 12px;
+  }
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 24px;
+    color: var(--grape);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+  .edu-school { font-size: 14px; color: var(--ink-muted); }
+  .edu-year {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    background: var(--lime-faint);
+    color: var(--grape);
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--grape);
+    text-align: center;
+    padding: 100px 48px;
+  }
+  .contact-label {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(221,234,120,0.5); margin-bottom: 16px;
+  }
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 52px);
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+  .contact-heading em { color: var(--lime); font-style: italic; }
+  .contact-sub { font-size: 15px; color: rgba(255,255,255,0.5); margin-bottom: 40px; }
+  .contact-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grape);
+    background: var(--lime);
+    padding: 14px 32px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .contact-email:hover { background: var(--lime-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.3);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .footer-name { font-family: var(--serif); font-size: 16px; color: rgba(221,234,120,0.7); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--lime); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 100px 24px 60px; min-height: 100vh; }
+    section { padding: 60px 24px; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 8px; }
+    .edu-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">PK</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Marketing &amp; Communications</p>
+    <h1 class="hero-name">Patrik<br><em>Kekkonen</em></h1>
+    <p class="hero-tagline">A self-starter driven by the intersection of marketing strategy, consumer culture, and meaningful communication.</p>
+    <a class="hero-cta" href="#about">Explore profile →</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-number">26</div>
+    <div class="hero-right-info">
+      <div class="info-row">
+        <span class="info-label">Location</span>
+        <span class="info-value">Finland</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Status</span>
+        <span class="info-value">MSc candidate, Aalto University</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Current role</span>
+        <span class="info-value">Communications Coordinator</span>
+      </div>
+      <div class="info-row" style="border:none;">
+        <span class="info-label">Focus</span>
+        <span class="info-value">MarComms · Strategy · Culture</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">About</h2>
+  </div>
+  <div class="about-grid">
+    <p class="about-pull">"Marketing that matters — <span>culturally, ethically, and strategically.</span>"</p>
+    <div class="about-body">
+      <p>I am a second-year master's student at Aalto University, pursuing a degree in Marketing with a focus on its societal implications, digital transformations, and cultural dimensions. My academic journey has equipped me with both strategic frameworks and analytical tools to design effective marketing strategies.</p>
+      <p>Through my work as Communications Coordinator at Future Board Oy and previously as Sales Coordinator at Hartwall Oy Ab, I have translated theory into practice — crafting internal and external communications that resonate across diverse audiences.</p>
+      <p>My Bachelor's in International Business laid the foundation for a global perspective, and I continue to build on it with a deep curiosity for consumer culture, digital marketing, and sustainability-driven brand communication.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Areas of expertise</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-dot"></div>
+      <h3 class="skill-name">Marketing Communications</h3>
+      <p class="skill-desc">Internal and external communications strategy with a strong command of tone, channel, and audience targeting.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot"></div>
+      <h3 class="skill-name">Digital Marketing</h3>
+      <p class="skill-desc">Search engine marketing, online advertising, and social media strategy built on data-driven insight and platform fluency.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot"></div>
+      <h3 class="skill-name">Marketing Strategy</h3>
+      <p class="skill-desc">Designing go-to-market and brand strategies that balance commercial objectives with ethical and sustainability considerations.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot"></div>
+      <h3 class="skill-name">Consumer Culture</h3>
+      <p class="skill-desc">Interpreting cultural trends and consumer behaviour to inform brand narratives and market positioning.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot"></div>
+      <h3 class="skill-name">Strategic Analysis</h3>
+      <p class="skill-desc">Applying analytical frameworks to assess market dynamics, competitive landscapes, and strategic opportunities.</p>
+    </div>
+    <div class="skill-card">
+      <div class="skill-dot"></div>
+      <h3 class="skill-name">International Business</h3>
+      <p class="skill-desc">Cross-cultural communication and global business acumen from a Bachelor's in International Business.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div>
+    <div class="exp-item">
+      <div>
+        <p class="exp-period">Current</p>
+        <p class="exp-company">Future Board Oy</p>
+        <span class="exp-badge">Active</span>
+      </div>
+      <div>
+        <h3 class="exp-role">Communications Coordinator</h3>
+        <p class="exp-desc">Leading internal and external communication initiatives, developing messaging frameworks, and ensuring consistent brand voice across stakeholder touchpoints. Collaborating cross-functionally to support organisational strategy through clear and compelling communication.</p>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <p class="exp-period">Previous</p>
+        <p class="exp-company">Hartwall Oy Ab</p>
+      </div>
+      <div>
+        <h3 class="exp-role">Sales Coordinator</h3>
+        <p class="exp-desc">Supported the sales function with coordination, reporting, and client-facing communication at one of Finland's leading beverage companies. Developed a practical understanding of commercial operations within a large FMCG environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS -->
+<section class="interests" id="interests">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Professional interests</h2>
+  </div>
+  <div class="interest-tags">
+    <span class="tag">Marketing Communications</span>
+    <span class="tag">Consumer Culture</span>
+    <span class="tag">Marketing Strategy</span>
+    <span class="tag">Digital Transformation</span>
+    <span class="tag">Brand Sustainability</span>
+    <span class="tag">Social Media Strategy</span>
+    <span class="tag">Cross-cultural Communication</span>
+    <span class="tag">Search Engine Marketing</span>
+    <span class="tag">Ethical Marketing</span>
+    <span class="tag">Internal Communications</span>
+    <span class="tag">Societal Impact of Marketing</span>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education" id="education">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Education</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <p class="edu-degree-type">Master of Science — ongoing</p>
+      <h3 class="edu-degree">Marketing</h3>
+      <p class="edu-school">Aalto University</p>
+      <span class="edu-year">2nd year · Finland</span>
+    </div>
+    <div class="edu-card">
+      <p class="edu-degree-type">Bachelor of Business Administration</p>
+      <h3 class="edu-degree">International Business</h3>
+      <p class="edu-school">Previous studies</p>
+      <span class="edu-year">Completed</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="contact-label">Get in touch</p>
+  <h2 class="contact-heading">Let's work<br><em>together</em></h2>
+  <p class="contact-sub">Open to collaborations, opportunities, and conversations.</p>
+  <a class="contact-email" href="mailto:patrik@example.com">patrik@example.com →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Patrik Kekkonen</span>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+  </div>
+  <span>© 2026</span>
+</footer>
+
+</body>
+</html>
